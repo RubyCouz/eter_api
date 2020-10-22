@@ -31,7 +31,7 @@ class SecurityController extends AbstractController {
      * @param EntityManagerInterface $manager
      * @param UserPasswordEncoderInterface $encoder
      * @param MailerInterface $mailer
-     * @return RedirectResponse|Response
+     * @return void
      * @throws TransportExceptionInterface
      */
     public function registration(Request $request, EntityManagerInterface $manager, UserPasswordEncoderInterface $encoder, MailerInterface $mailer) {
@@ -40,12 +40,12 @@ class SecurityController extends AbstractController {
         $inProgress = false;
 
         // Création du formulaire selon la table user
-        $form = $this->createForm(RegistrationType::class, $user);
+//        $form = $this->createForm(RegistrationType::class, $user);
 
         // Analyse de la requête
-        $form->handleRequest($request);
-        if($form->isSubmitted() && $form->isValid())
-        {
+//        $form->handleRequest($request);
+//        if($form->isSubmitted() && $form->isValid())
+//        {
             // Encryptage du mot de passe selon la configuration dans security.yaml de config
             // Le premier paramètre détermine la façon de crypter, le second ce qu'il faut crypter
             $hash = $encoder->encodePassword($user, $user->getUserPassword());
@@ -79,16 +79,16 @@ class SecurityController extends AbstractController {
                     'username' => $user->getUserLogin(),
                     'token' => $user->getActivationToken(),
                 ]);
-            $mailer->send($email);
+        $mailer->send($email);
             // On envoie un message flash
-            $this->addFlash('success', 'Un email de confirmation vous a été envoyé');
-            return $this->redirectToRoute('home');
-        }
+//            $this->addFlash('success', 'Un email de confirmation vous a été envoyé');
+//            return $this->redirectToRoute('home');
+//        }
         
         // Affichage
-        return $this->render('security/registration.html.twig', [
-            'form' => $form->createView()
-        ]);
+//        return $this->render('security/registration.html.twig', [
+//            'form' => $form->createView()
+//        ]);
     }
 
     /**
@@ -97,7 +97,7 @@ class SecurityController extends AbstractController {
      * @param Request $request
      * @param EterUserRepository $entityRepo
      * @param EntityManagerInterface $manager
-     * @return RedirectResponse
+     * @return void
      */
     public function activation($token, Request $request, EterUserRepository $entityRepo, EntityManagerInterface $manager) {
         $inProgress = false;
@@ -109,11 +109,9 @@ class SecurityController extends AbstractController {
             // On envoie un message flash
             $this->addFlash('danger', 'Cet utilisateur n\'existe pas');
             // On retourne à l'accueil
-            return $this->redirectToRoute('home', [
-            ]);
-        }
-        else if($user)
-        {
+//            return $this->redirectToRoute('home', [
+//            ]);
+        } else {
             // Définition de la date du clic sur le lien
             $datelien = strtotime('now');
             // Enregistrement en BDD de la date du clic sur le lien
@@ -130,8 +128,8 @@ class SecurityController extends AbstractController {
                 $manager->flush();
                 $this->addFlash('danger', 'Le lien n\'est plus valide, veuillez vous réinscrire');
                 // On retourne à l'accueil
-                return $this->redirectToRoute('home', [
-                ]);
+//                return $this->redirectToRoute('home', [
+//                ]);
             }
         }
         // On supprime le token
@@ -141,14 +139,14 @@ class SecurityController extends AbstractController {
         // On envoie un message flash
         $this->addFlash('success', 'Votre compte a bien été activé');
         // On retourne à l'accueil
-        return $this->redirectToRoute('home',[
-        ]);
+//        return $this->redirectToRoute('home',[
+//        ]);
     }
 
     /**
      * @Route("/login", name="login")
      * @param AuthenticationUtils $authenticationUtils
-     * @return Response
+     * @return string
      */
     public function login(AuthenticationUtils $authenticationUtils) {
 
@@ -156,15 +154,19 @@ class SecurityController extends AbstractController {
         $lastUsername = $authenticationUtils->getLastUsername();
         if($error){
             $this->addFlash('danger', 'Cet email n\'existe pas ou le mot de passe est erroné !');
-            return $this->render('security/login.html.twig', [
-                'last_username' => $lastUsername,
-                'error' => $error,
-            ]);
+//            return $this->render('security/login.html.twig', [
+//                'last_username' => $lastUsername,
+//                'error' => $error,
+//            ]);
+            $state = $error;
+        } else {
+            $state = 'co ok';
         }
-        return $this->render('security/login.html.twig', [
-            'last_username' => $lastUsername,
-            'error' => $error,
-        ]);
+        return $state;
+//        return $this->render('security/login.html.twig', [
+//            'last_username' => $lastUsername,
+//            'error' => $error,
+//        ]);
 //        else{
 //            return $this->render('security/login.html.twig', [
 //                'last_username' => $lastUsername,
