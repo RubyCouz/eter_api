@@ -27,31 +27,23 @@ security:
                 password_path: password
                 success_handler: lexik_jwt_authentication.handler.authentication_success
                 failure_handler: lexik_jwt_authentication.handler.authentication_failure
-
         register:
             pattern:  ^/api/register
             stateless: true
             anonymous: true
-
-        test:
-            pattern:  ^/test
-            stateless: true
-            anonymous: false
-            provider: from_database
-            guard:
-                authenticators:
-                    - lexik_jwt_authentication.jwt_token_authenticator
         api:
             pattern:  ^/api
             stateless: true
             anonymous: true
             provider: from_database
+            guard:
+                authenticators:
+                    - lexik_jwt_authentication.jwt_token_authenticator
         main:
             anonymous: lazy
             provider: from_database
-
     access_control:
         - { path: ^/api/login, roles: IS_AUTHENTICATED_ANONYMOUSLY }
-        - { path: ^/api/register, roles: IS_AUTHENTICATED_ANONYMOUSLY }
-        - { path: ^/test, roles: IS_AUTHENTICATED_FULLY }
-        - { path: ^/api, roles: IS_AUTHENTICATED_ANONYMOUSLY }
+        - { path: ^/api/register, roles: IS_AUTHENTICATED_ANONYMOUSLY, requires_channel: https }
+        - { path: ^/api/eter_user, role: ROLE_ADMIN, methods: ["GET","DELETE"], requires_channel: https}
+        - { path: ^/api, roles: IS_AUTHENTICATED_ANONYMOUSLY, requires_channel: https }
