@@ -11,15 +11,45 @@ use Symfony\Component\Validator\Constraints as Assert;
 use Symfony\Component\Security\Core\User\UserInterface;
 use Symfony\Bridge\Doctrine\Validator\Constraints\UniqueEntity;
 use Vich\UploaderBundle\Mapping\Annotation as Vich;
+use App\Resolver\EterUserMutResolver;
 
 /**
  * @ORM\Entity(repositoryClass="App\Repository\EterUserRepository")
  * @Vich\Uploadable
  * @UniqueEntity(
- * fields = {"user_mail"}, 
- * message = "L'email existe déjà")
- * @ApiResource()
+ *      fields = {"user_mail"}, 
+ *      message = "L'email existe déjà"
+ * )
+ * @ApiResource(
+ *      graphql={
+ *          "create"={
+ *              "mutation" = EterUserMutResolver::class,
+ *              "args" = {
+ *                  "userLogin" = { 
+ *                      "type" = "String!",
+ *                      "description" = "Le pseudo de l'utilisateur"
+ *                  },
+ *                  "userMail" = {
+ *                      "type" = "String!",
+ *                      "description" = "L'email de l'utilisateur"
+ *                  },
+ *                  "userPassword" = {      
+ *                      "type" = "String!",
+ *                       "description" = "Le mot de passe de l'utilisateur"
+ *                  },
+ *                  "userDiscord" = {
+ *                      "type" = "String!",
+ *                      "description" = "Le discord de l'utilisateur"
+ *                  },
+ *              }
+ *          },
+ *          "item_query",
+ *          "collection_query",
+ *          
+ *      }
+ * )
  */
+
 class EterUser implements UserInterface
 {
     // définition d'un tableau des rôles => constante
