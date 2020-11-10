@@ -29,7 +29,7 @@ class EterStreamer
     private $stream_support;
 
     /**
-     * @ORM\ManyToOne(targetEntity="App\Entity\EterUser", inversedBy="user_stream")
+     * @ORM\ManyToOne(targetEntity="App\Entity\EterUser", inversedBy="userStreams")
      */
     private $eterUser;
 

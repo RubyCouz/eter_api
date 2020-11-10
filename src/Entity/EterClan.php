@@ -66,7 +66,7 @@ class EterClan
     private $clan_gameplay;
 
     /**
-     * @ORM\ManyToMany(targetEntity="App\Entity\EterUser", mappedBy="user_clan")
+     * @ORM\ManyToMany(targetEntity="App\Entity\EterUser", mappedBy="userClans")
      */
     private $eterUsers;
 

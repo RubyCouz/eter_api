@@ -30,7 +30,7 @@ class EterGame
     private $game_name;
 
     /**
-     * @ORM\ManyToMany(targetEntity="App\Entity\EterUser", mappedBy="user_game")
+     * @ORM\ManyToMany(targetEntity="App\Entity\EterUser", mappedBy="userGames")
      */
     private $eterUsers;
 

@@ -26,7 +26,7 @@ class EterLabel
     private $label_name;
 
     /**
-     * @ORM\ManyToMany(targetEntity="App\Entity\EterUser", mappedBy="label")
+     * @ORM\ManyToMany(targetEntity="App\Entity\EterUser", mappedBy="userLabels")
      */
     private $eterUsers;
 

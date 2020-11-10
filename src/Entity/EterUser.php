@@ -93,22 +93,22 @@ class EterUser implements UserInterface
     /**
      * @ORM\ManyToMany(targetEntity="App\Entity\EterLabel", inversedBy="eterUsers")
      */
-    private $label;
+    private $userLabels;
 
     /**
      * @ORM\ManyToMany(targetEntity="App\Entity\EterClan", inversedBy="eterUsers")
      */
-    private $user_clan;
+    private $userClans;
 
     /**
      * @ORM\ManyToMany(targetEntity="App\Entity\EterGame", inversedBy="eterUsers", cascade={"persist"})
      */
-    private $user_game;
+    private $userGames;
 
     /**
      * @ORM\OneToMany(targetEntity="App\Entity\EterStreamer", mappedBy="eterUser")
      */
-    private $user_stream;
+    private $userStreams;
 
     /**
      * @ORM\ManyToMany(targetEntity="App\Entity\EterEvent", mappedBy="event_orga")
@@ -190,13 +190,15 @@ class EterUser implements UserInterface
     {
         $this->user_date = new \DateTime('Europe/Paris');
         $this->role = new ArrayCollection();
-        $this->user_clan = new ArrayCollection();
-        $this->user_game = new ArrayCollection();
-        $this->user_stream = new ArrayCollection();
+        $this->eterProducts = new ArrayCollection();
+        $this->userClans = new ArrayCollection();
+        $this->userGames = new ArrayCollection();
+        $this->userStreams = new ArrayCollection();
         $this->eterEvents = new ArrayCollection();
         $this->eterComments = new ArrayCollection();
         $this->eterContents = new ArrayCollection();
         $this->eterProducts = new ArrayCollection();
+        $this->userLabels = new ArrayCollection();
     }
 
     public function getId(): ?int
@@ -346,15 +348,15 @@ class EterUser implements UserInterface
     /**
      * @return Collection|EterLabel[]
      */
-    public function getLabel(): Collection
+    public function getUserLabels(): Collection
     {
-        return $this->label;
+        return $this->userLabels;
     }
 
-    public function addLabel(EterLabel $label): self
+    public function addUserLabel(EterLabel $label): self
     {
-        if (!$this->label->contains($label)) {
-            $this->label[] = $label;
+        if (!$this->userLabels->contains($label)) {
+            $this->userLabels[] = $label;
         }
 
         return $this;
@@ -362,8 +364,8 @@ class EterUser implements UserInterface
 
     public function removeUserLabel(EterLabel $userLabel): self
     {
-        if ($this->label->contains($userLabel)) {
-            $this->label->removeElement($userLabel);
+        if ($this->userLabels->contains($userLabel)) {
+            $this->userLabels->removeElement($userLabel);
         }
 
         return $this;
@@ -372,15 +374,15 @@ class EterUser implements UserInterface
     /**
      * @return Collection|EterClan[]
      */
-    public function getUserClan(): Collection
+    public function getUserClans(): Collection
     {
-        return $this->user_clan;
+        return $this->userClans;
     }
 
     public function addUserClan(EterClan $userClan): self
     {
-        if (!$this->user_clan->contains($userClan)) {
-            $this->user_clan[] = $userClan;
+        if (!$this->userClans->contains($userClan)) {
+            $this->userClans[] = $userClan;
         }
 
         return $this;
@@ -388,8 +390,8 @@ class EterUser implements UserInterface
 
     public function removeUserClan(EterClan $userClan): self
     {
-        if ($this->user_clan->contains($userClan)) {
-            $this->user_clan->removeElement($userClan);
+        if ($this->userClans->contains($userClan)) {
+            $this->userClans->removeElement($userClan);
         }
 
         return $this;
@@ -398,15 +400,15 @@ class EterUser implements UserInterface
     /**
      * @return Collection|EterGame[]
      */
-    public function getUserGame(): Collection
+    public function getUserGames(): Collection
     {
-        return $this->user_game;
+        return $this->userGames;
     }
 
     public function addUserGame(EterGame $userGame): self
     {
-        if (!$this->user_game->contains($userGame)) {
-            $this->user_game[] = $userGame;
+        if (!$this->userGames->contains($userGame)) {
+            $this->userGames[] = $userGame;
         }
 
         return $this;
@@ -414,8 +416,8 @@ class EterUser implements UserInterface
 
     public function removeUserGame(EterGame $userGame): self
     {
-        if ($this->user_game->contains($userGame)) {
-            $this->user_game->removeElement($userGame);
+        if ($this->userGames->contains($userGame)) {
+            $this->userGames->removeElement($userGame);
         }
 
         return $this;
@@ -424,15 +426,15 @@ class EterUser implements UserInterface
     /**
      * @return Collection|EterStreamer[]
      */
-    public function getUserStream(): Collection
+    public function getUserStreams(): Collection
     {
-        return $this->user_stream;
+        return $this->userStreams;
     }
 
     public function addUserStream(EterStreamer $userStream): self
     {
-        if (!$this->user_stream->contains($userStream)) {
-            $this->user_stream[] = $userStream;
+        if (!$this->userStreams->contains($userStream)) {
+            $this->userStreams[] = $userStream;
             $userStream->setEterUser($this);
         }
 
@@ -441,8 +443,8 @@ class EterUser implements UserInterface
 
     public function removeUserStream(EterStreamer $userStream): self
     {
-        if ($this->user_stream->contains($userStream)) {
-            $this->user_stream->removeElement($userStream);
+        if ($this->userStreams->contains($userStream)) {
+            $this->userStreams->removeElement($userStream);
             // set the owning side to null (unless already changed)
             if ($userStream->getEterUser() === $this) {
                 $userStream->setEterUser(null);
