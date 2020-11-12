@@ -4,7 +4,9 @@ security:
         App\Entity\EterUser:
             algorithm: bcrypt
             cost: 12
-
+    #L'admin a aussi les droit de l'utilisateur
+    role_hierarchy:
+        ROLE_ADMIN: ROLE_USER
     # https://symfony.com/doc/current/security.html#where-do-users-come-from-user-providers
     # provider : permet d'indiquer comment on récupère les utilisateurs et les authentifications
     providers:
