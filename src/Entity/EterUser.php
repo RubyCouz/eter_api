@@ -44,7 +44,9 @@ use App\Resolver\EterUserMutResolver;
  *              }
  *          },
  *          "item_query",
- *          "collection_query",
+ *          "collection_query"={
+ *              "security" = "is_granted('IS_AUTHENTICATED_FULLY')",
+ *          },
  *          
  *      }
  * )
