@@ -19,6 +19,7 @@
         "webonyx/graphql-php": "^14.3"
     },
     "require-dev": {
+        "symfony/debug-bundle": "5.1.*"
     },
     "config": {
         "optimize-autoloader": true,
