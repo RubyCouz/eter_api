@@ -41,6 +41,10 @@ use App\Resolver\EterUserMutResolver;
  *                      "type" = "String!",
  *                      "description" = "Le discord de l'utilisateur"
  *                  },
+ *                  "userRole" = {
+ *                      "type" = "String",
+ *                      "description" = "Le role utilisateur (seul un utilisateur admin peu le modifier)"
+ *                  },
  *              }
  *          },
  *          "delete",
