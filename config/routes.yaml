@@ -3,9 +3,13 @@
 #    controller: App\Controller\DefaultController::index
 
 authentication_token:
-    path: /api/login
-    methods: ['POST']
+    path:       /api/token/login
+    methods:    ['POST']
 
 api_graphql_entrypoint:
-    path: /api/graphql
+    path:       /api/graphql
     controller: api_platform.graphql.action.entrypoint
+
+gesdinet_jwt_refresh_token:
+    path:       /api/token/refresh
+    controller: gesdinet.jwtrefreshtoken::refresh
