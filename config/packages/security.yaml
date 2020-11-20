@@ -20,17 +20,17 @@ security:
             pattern: ^/(_(profiler|wdt)|css|images|js)/
             security: false
         login:
-            pattern:  ^/api/login
+            pattern:  ^/api/token/login
             stateless: true
             anonymous: true
             json_login:
-                check_path: /api/login
+                check_path: /api/token/login
                 username_path: email
                 password_path: password
                 success_handler: lexik_jwt_authentication.handler.authentication_success
                 failure_handler: lexik_jwt_authentication.handler.authentication_failure
-        register:
-            pattern:  ^/api/register
+        refresh:
+            pattern:  ^/api/token/refresh
             stateless: true
             anonymous: true
         api:
@@ -45,7 +45,6 @@ security:
             anonymous: lazy
             provider: from_database
     access_control:
-        - { path: ^/api/login, roles: IS_AUTHENTICATED_ANONYMOUSLY }
-        - { path: ^/api/register, roles: IS_AUTHENTICATED_ANONYMOUSLY, requires_channel: https }
-        - { path: ^/api/eter_user, role: ROLE_ADMIN, methods: ["GET","DELETE"], requires_channel: https}
+        - { path: ^/api/login, roles: IS_AUTHENTICATED_ANONYMOUSLY, requires_channel: https }
         - { path: ^/api, roles: IS_AUTHENTICATED_ANONYMOUSLY, requires_channel: https }
+        - { path: ^/api/token/refresh, roles: IS_AUTHENTICATED_ANONYMOUSLY, requires_channel: https}
