@@ -84,6 +84,7 @@ class EterUser implements UserInterface
     /**
      * @ORM\Column(type="string", length=150)
      */
+    //@Assert\Regex(pattern="/^[a-zA-Z0-9.!#$%&’*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$/")
     private $user_mail;
 
     /**
@@ -103,6 +104,7 @@ class EterUser implements UserInterface
 
     /**
      * @ORM\Column(type="string", length=5, nullable=true)
+     * @Assert\Regex(pattern="/^[0-9]{5}$/")
      */
     private $user_zip;
 
