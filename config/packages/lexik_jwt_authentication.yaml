@@ -14,7 +14,7 @@ lexik_jwt_authentication:
     set_cookies:
         jwt_hp:
             lifetime: 3600
-            samesite: strict
+            samesite: lax
             path: /
             domain: null
             httpOnly: false
@@ -23,7 +23,7 @@ lexik_jwt_authentication:
                 - payload
         jwt_s:
             lifetime: 3600
-            samesite: strict
+            samesite: lax
             path: /
             domain: null
             httpOnly: true
