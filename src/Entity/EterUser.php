@@ -50,9 +50,7 @@ use App\Resolver\EterUserMutResolver;
  *          "delete",
  *          "update",
  *          "item_query",
- *          "collection_query"={
- *              "security" = "is_granted('ROLE_ADMIN')",
- *          },
+ *          "collection_query",
  *          
  *      }
  * )
