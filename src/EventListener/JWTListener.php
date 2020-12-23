@@ -32,13 +32,13 @@ class JWTListener
     public function onJWTCreated(JWTCreatedEvent $event)
     {
         $request = $this->requestStack->getCurrentRequest();
-
         // CSRF protection.
         $payload = $event->getData();
 
         $csrf = random_bytes (32);
         $csrf = sha1 ($csrf);
         $payload['xsrf-token']  = $csrf;
+        $payload['id']  = $event->getUser()->getId();
 
         // Set the data to the event;
         $event->setData($payload);
