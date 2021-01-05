@@ -4,7 +4,7 @@ namespace App\Repository;
 
 use App\Entity\EterCategorie;
 use Doctrine\Bundle\DoctrineBundle\Repository\ServiceEntityRepository;
-use Doctrine\Common\Persistence\ManagerRegistry;
+use Doctrine\Persistence\ManagerRegistry;
 
 /**
  * @method EterCategorie|null find($id, $lockMode = null, $lockVersion = null)
