@@ -45,6 +45,10 @@ use App\Resolver\EterUserMutResolver;
  *                      "type" = "String",
  *                      "description" = "Le role utilisateur (seul un utilisateur admin peu le modifier)"
  *                  },
+ *                  "userPic" = {
+ *                      "type" = "Upload",
+ *                      "description" = "The file to upload"
+ *                  },
  *              }
  *          },
  *          "delete",

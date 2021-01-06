@@ -48,7 +48,15 @@ final class EterUserMutResolver implements MutationResolverInterface
         $hash =  $this->passwordEncoder->encodePassword($item, $password);
         $item->setUserPassword($hash);
 
-        return $item;
+        
+        if (isset($context['args']['input']['userPic'])) {
+            $uploadedFile = $context['args']['input']['userPic'];
+            $mediaObject = new MediaObject();
+            $mediaObject->file = $uploadedFile;
+            //return $mediaObject;
+        }
+        
+           return $item;
     }
 }
 
