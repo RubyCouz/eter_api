@@ -26,17 +26,12 @@ final class EterUserMutResolver implements MutationResolverInterface
 
     public function __invoke($item, array $context)
     {
-        // UserPasswordEncoderInterface $encoder
         // Mutation input arguments are in $context['args']['input'].
 
         // Do something with the book.
         // Or fetch the book if it has not been retrieved.
 
         // The returned item will pe persisted.
-
-        //dump($this->security->getUser());
-        //dump($this->security->getUser()->getUserRole());
-        //dump($this->security->isGranted('ROLE_ADMIN'));
 
         if (!$this->security->isGranted('ROLE_ADMIN')) {
             $item->setUserRole("Utilisateur");

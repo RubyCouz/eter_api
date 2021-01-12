@@ -1,4 +1,6 @@
 api_platform:
+    graphql:
+        nesting_separator: __
     mapping:
         paths: ['%kernel.project_dir%/src/Entity']
     swagger:
@@ -8,5 +10,5 @@ api_platform:
                 name: Authorization
                 type: header
     formats:
-        multipart: ['multipart/form-data']
-     
+        multipart:
+            mime_types: ['multipart/form-data']
