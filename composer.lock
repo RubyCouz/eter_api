@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "8e8cdc5b2567b0bb81287b09f98d8a73",
+    "content-hash": "0f747d8b3e5d820d27051c00f7ec1dd8",
     "packages": [
         {
             "name": "api-platform/api-pack",
@@ -1718,59 +1718,6 @@
                 }
             ],
             "time": "2020-12-28T10:50:10+00:00"
-        },
-        {
-            "name": "gesdinet/jwt-refresh-token-bundle",
-            "version": "v0.9.1",
-            "source": {
-                "type": "git",
-                "url": "https://github.com/markitosgv/JWTRefreshTokenBundle.git",
-                "reference": "1f2729e45b5eb28d6461d94dadeb0211a96754e8"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://api.github.com/repos/markitosgv/JWTRefreshTokenBundle/zipball/1f2729e45b5eb28d6461d94dadeb0211a96754e8",
-                "reference": "1f2729e45b5eb28d6461d94dadeb0211a96754e8",
-                "shasum": ""
-            },
-            "require": {
-                "lexik/jwt-authentication-bundle": "^1.1|^2.0@dev",
-                "php": "^5.5.9|>=7.0.8",
-                "symfony/framework-bundle": "~3.4|~4.0|~5.0",
-                "symfony/validator": "~3.4|~4.0|~5.0"
-            },
-            "require-dev": {
-                "doctrine/doctrine-bundle": "~1.4|~2.0",
-                "doctrine/mongodb-odm-bundle": "^3.4|^4.0",
-                "doctrine/orm": "^2.4.8",
-                "phpspec/phpspec": "^3.0|^4.0|^5.0|^6.0"
-            },
-            "type": "symfony-bundle",
-            "extra": {
-                "branch-alias": {
-                    "dev-master": "1.0-dev"
-                }
-            },
-            "autoload": {
-                "psr-4": {
-                    "Gesdinet\\JWTRefreshTokenBundle\\": ""
-                }
-            },
-            "notification-url": "https://packagist.org/downloads/",
-            "license": [
-                "MIT"
-            ],
-            "authors": [
-                {
-                    "name": "Marcos Gómez Vilches",
-                    "email": "marcos@gesdinet.com"
-                }
-            ],
-            "description": "Implements a refresh token system over Json Web Tokens in Symfony",
-            "keywords": [
-                "jwt refresh token bundle symfony json web"
-            ],
-            "time": "2020-02-04T16:08:46+00:00"
         },
         {
             "name": "jms/metadata",
@@ -5095,16 +5042,16 @@
         },
         {
             "name": "symfony/polyfill-mbstring",
-            "version": "v1.20.0",
+            "version": "v1.22.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/polyfill-mbstring.git",
-                "reference": "39d483bdf39be819deabf04ec872eb0b2410b531"
+                "reference": "f377a3dd1fde44d37b9831d68dc8dea3ffd28e13"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/symfony/polyfill-mbstring/zipball/39d483bdf39be819deabf04ec872eb0b2410b531",
-                "reference": "39d483bdf39be819deabf04ec872eb0b2410b531",
+                "url": "https://api.github.com/repos/symfony/polyfill-mbstring/zipball/f377a3dd1fde44d37b9831d68dc8dea3ffd28e13",
+                "reference": "f377a3dd1fde44d37b9831d68dc8dea3ffd28e13",
                 "shasum": ""
             },
             "require": {
@@ -5116,7 +5063,7 @@
             "type": "library",
             "extra": {
                 "branch-alias": {
-                    "dev-main": "1.20-dev"
+                    "dev-main": "1.22-dev"
                 },
                 "thanks": {
                     "name": "symfony/polyfill",
@@ -5168,7 +5115,7 @@
                     "type": "tidelift"
                 }
             ],
-            "time": "2020-10-23T14:02:19+00:00"
+            "time": "2021-01-07T16:49:33+00:00"
         },
         {
             "name": "symfony/polyfill-php73",
@@ -5248,16 +5195,16 @@
         },
         {
             "name": "symfony/polyfill-php80",
-            "version": "v1.20.0",
+            "version": "v1.22.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/polyfill-php80.git",
-                "reference": "e70aa8b064c5b72d3df2abd5ab1e90464ad009de"
+                "reference": "dc3063ba22c2a1fd2f45ed856374d79114998f91"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/symfony/polyfill-php80/zipball/e70aa8b064c5b72d3df2abd5ab1e90464ad009de",
-                "reference": "e70aa8b064c5b72d3df2abd5ab1e90464ad009de",
+                "url": "https://api.github.com/repos/symfony/polyfill-php80/zipball/dc3063ba22c2a1fd2f45ed856374d79114998f91",
+                "reference": "dc3063ba22c2a1fd2f45ed856374d79114998f91",
                 "shasum": ""
             },
             "require": {
@@ -5266,7 +5213,7 @@
             "type": "library",
             "extra": {
                 "branch-alias": {
-                    "dev-main": "1.20-dev"
+                    "dev-main": "1.22-dev"
                 },
                 "thanks": {
                     "name": "symfony/polyfill",
@@ -5324,7 +5271,7 @@
                     "type": "tidelift"
                 }
             ],
-            "time": "2020-10-23T14:02:19+00:00"
+            "time": "2021-01-07T16:49:33+00:00"
         },
         {
             "name": "symfony/property-access",
