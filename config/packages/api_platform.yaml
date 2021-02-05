@@ -10,9 +10,9 @@ api_platform:
                 name: Authorization
                 type: header
 
-    formats:
-        multipart:
-            mime_types: ['multipart/form-data']
+#    formats:
+#        multipart:
+#            mime_types: ['multipart/form-data']
     #patch_formats: ['multipart/form-data']
     patch_formats:
         multipart: ['multipart/form-data']
